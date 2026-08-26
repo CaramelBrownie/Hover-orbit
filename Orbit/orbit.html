@@ -3,8 +3,7 @@
 @property --light-x{syntax:"<percentage>";inherits:false;initial-value:93%}
 @property --light-y{syntax:"<percentage>";inherits:false;initial-value:50%}
 @property --light-opacity{syntax:"<number>";inherits:false;initial-value:0}
-html,body {width: 100%;height: 100%;margin: 0;overflow: hidden;}
-.container{width:100%;height:100%;display:flex;justify-content:center;align-items:center}
+.container{width:100%;height:100dvh;display:flex;justify-content:center;align-items:center}
 .orbit{width:min(80vw,80vh * 2);aspect-ratio:2/1;position:relative}
 .orbit .subject{width:60%;aspect-ratio:1;border-radius:50%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:radial-gradient(circle at 30% 25%,#777 0%,#444 12%,#222 35%,#090909 65%,#000 100%);box-shadow:inset -25px -20px 35px rgba(0,0,0,.9),inset 15px 15px 25px rgba(255,255,255,.08),0 20px 40px rgba(0,0,0,.7)}
 .orbit .subject::after{content:"";position:absolute;inset:0;border-radius:50%;pointer-events:none;background:radial-gradient(circle at var(--light-x) var(--light-y),rgba(255,40,40,var(--light-opacity)) 0%,rgba(255,0,0,calc(var(--light-opacity) * .55)) 12%,rgba(255,0,0,calc(var(--light-opacity) * .18)) 28%,transparent 48%);mix-blend-mode:screen;animation:illuminate 10s linear infinite}
