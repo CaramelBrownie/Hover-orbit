@@ -1,0 +1,14 @@
+<style>
+*{box-sizing:border-box}
+@property --light-x{syntax:"<percentage>";inherits:false;initial-value:93%}
+@property --light-y{syntax:"<percentage>";inherits:false;initial-value:50%}
+@property --light-opacity{syntax:"<number>";inherits:false;initial-value:0}
+.container{width:100%;height:100dvh;display:flex;justify-content:center;align-items:center}
+.orbit{width:min(80vw,80vh * 2);aspect-ratio:2/1;position:relative}
+.orbit .subject{width:60%;aspect-ratio:1;border-radius:50%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:radial-gradient(circle at 30% 25%,#777 0%,#444 12%,#222 35%,#090909 65%,#000 100%);box-shadow:inset -25px -20px 35px rgba(0,0,0,.9),inset 15px 15px 25px rgba(255,255,255,.08),0 20px 40px rgba(0,0,0,.7)}
+.orbit .subject::after{content:"";position:absolute;inset:0;border-radius:50%;pointer-events:none;background:radial-gradient(circle at var(--light-x) var(--light-y),rgba(255,40,40,var(--light-opacity)) 0%,rgba(255,0,0,calc(var(--light-opacity) * .55)) 12%,rgba(255,0,0,calc(var(--light-opacity) * .18)) 28%,transparent 48%);mix-blend-mode:screen;animation:illuminate 10s linear infinite}
+.orbit .object{width:6%;aspect-ratio:1;background:radial-gradient(circle at 30% 25%,#ffdddd 0%,#ff5555 8%,#e00000 25%,#8b0000 50%,#350000 75%,#080000 100%);box-shadow:0 0 15px #ff0000,0 0 35px rgba(255,0,0,.8),0 0 70px rgba(255,0,0,.5);border-radius:50%;position:absolute;offset-path:ellipse(43% 43% at 50% 50%);offset-distance:0%;animation:orbit 10s linear infinite}
+@keyframes orbit{0%{offset-distance:0%;z-index:-1}25%{offset-distance:25%;z-index:1}50%{offset-distance:50%;z-index:-1}75%{offset-distance:75%;z-index:-1}100%{offset-distance:100%;z-index:-1}}
+@keyframes illuminate{0%{--light-x:93%;--light-y:50%;--light-opacity:0}6.25%{--light-x:88%;--light-y:69%;--light-opacity:.08}12.5%{--light-x:80%;--light-y:80%;--light-opacity:.25}18.75%{--light-x:67%;--light-y:88%;--light-opacity:.48}25%{--light-x:50%;--light-y:93%;--light-opacity:.7}31.25%{--light-x:33%;--light-y:88%;--light-opacity:.48}37.5%{--light-x:20%;--light-y:80%;--light-opacity:.25}43.75%{--light-x:12%;--light-y:69%;--light-opacity:.08}50%{--light-x:7%;--light-y:50%;--light-opacity:0}56.25%{--light-x:12%;--light-y:31%;--light-opacity:0}62.5%{--light-x:20%;--light-y:20%;--light-opacity:0}68.75%{--light-x:33%;--light-y:12%;--light-opacity:0}75%{--light-x:50%;--light-y:7%;--light-opacity:0}81.25%{--light-x:67%;--light-y:12%;--light-opacity:0}87.5%{--light-x:80%;--light-y:20%;--light-opacity:0}93.75%{--light-x:88%;--light-y:31%;--light-opacity:0}100%{--light-x:93%;--light-y:50%;--light-opacity:0}}
+</style>
+<div class="container"><div class="orbit"><div class="subject"></div><div class="object"></div></div></div>
